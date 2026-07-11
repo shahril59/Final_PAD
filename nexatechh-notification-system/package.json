@@ -1,0 +1,14 @@
+{
+  "name": "nexatech-notification-system",
+  "version": "1.0.0",
+  "description": "Distributed Real-Time Notification System using WebSocket and Redis",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ioredis": "^5.4.1",
+    "ws": "^8.18.0"
+  }
+}
