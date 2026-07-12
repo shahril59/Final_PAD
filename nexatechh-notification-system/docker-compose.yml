@@ -1,0 +1,33 @@
+services:
+
+  redis:
+    image: redis:7-alpine
+    container_name: nexatech-redis
+    ports:
+      - "6379:6379"
+
+  server1:
+    build: .
+    container_name: nexatech-server1
+    environment:
+      PORT: 3000
+      SERVER_ID: server1
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+
+  server2:
+    build: .
+    container_name: nexatech-server2
+    environment:
+      PORT: 3001
+      SERVER_ID: server2
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    ports:
+      - "3001:3001"
+    depends_on:
+      - redis
